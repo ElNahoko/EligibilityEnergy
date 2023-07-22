@@ -1,3 +1,8 @@
+
+export enum OwnershipEnum {
+  Owner = 'Owner',
+  Tenant = 'Tenant'
+}
 export interface ProjectInfo {
   ownership: OwnershipEnum;
   numberOfPeople: number;
@@ -7,7 +12,13 @@ export interface ProjectInfo {
 }
 
 
-export enum OwnershipEnum {
-  Owner = 'Owner',
-  Tenant = 'Tenant'
-}
+const defaultProjectInfo: ProjectInfo = {
+  ownership: OwnershipEnum.Tenant,
+  numberOfPeople: 0,
+  householdIncome: 0,
+  area: 0,
+  costOfProject: 0,
+};
+
+
+export default defaultProjectInfo;

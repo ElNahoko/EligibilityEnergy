@@ -30,14 +30,14 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.formService.currentForm.subscribe(form => this.form.patchValue(form));
+    this.formService.currentPersonalInfoForm.subscribe(form => this.form.patchValue(form));
   }
 
   next(): void {
     this.submitted = true;
 
     if (this.form.valid) {
-      this.formService.changeForm(this.form.value);
+      this.formService.changePersonalInfoForm(this.form.value);
       this.router.navigate(['/project/info']);
     }
   }

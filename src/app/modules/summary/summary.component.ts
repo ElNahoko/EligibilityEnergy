@@ -23,15 +23,15 @@ export class SummaryComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.formService.currentForm.subscribe(form => {
-      console.warn(form)
-      if ('civility' in form) {
-        this.personalInfo = form as PersonalInfo;
-      } else {
-        this.projectInfo = form as ProjectInfo;
-        this.calculateEligibility();
-      }
+    this.formService.currentPersonalInfoForm.subscribe(form => {
+      this.personalInfo = form;
     });
+
+    this.formService.currentProjectInfoForm.subscribe(form => {
+      this.projectInfo = form;
+    });
+    
+    this.calculateEligibility();
   }
 
   calculateEligibility(): void {

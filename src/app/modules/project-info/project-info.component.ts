@@ -28,14 +28,14 @@ export class ProjectInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.formService.currentForm.subscribe(form => this.form.patchValue(form));
+    this.formService.currentProjectInfoForm.subscribe(form => this.form.patchValue(form));
   }
 
   next(): void {
     this.submitted = true;
 
     if (this.form.valid) {
-      this.formService.changeForm({ ...this.form.value, area: +this.form.value.area });
+      this.formService.changeProjectInfoForm({ ...this.form.value, area: +this.form.value.area });
       this.router.navigate(['/summary']);
     }
   }

@@ -1,19 +1,13 @@
 <div class="summary">
-  <h2>Summary</h2>
+  <h2>Récapitulative</h2>
   <div *ngIf="personalInfo && projectInfo">
-    <p>Thank you, {{ personalInfo.civility }} {{ personalInfo.firstName }} {{ personalInfo.lastName }}, for providing your information!</p>
-    <div *ngIf="projectInfo.ownership === 'Owner'">
-      <p>Your project cost is {{ projectInfo.costOfProject }} euros.</p>
-      <div *ngIf="isEligible">
+    <p>Merci {{ personalInfo.civility }} {{ personalInfo.civility }} {{ personalInfo.lastName }} {{ personalInfo.firstName }} , for providing your information!</p>
+    <div *ngIf="isEligible">
         <p>Congratulations! You are eligible for our program.</p>
         <p>You qualify for an Effy amount of {{ effyAidAmount }} euros.</p>
-      </div>
-      <div *ngIf="!isEligible">
-        <p>We're sorry, you are not eligible for our program at the moment.</p>
-      </div>
     </div>
-    <div *ngIf="projectInfo.ownership === 'Tenant'">
-      <p>As a tenant, you are not eligible for our program at the moment.</p>
+    <div *ngIf="!isEligible">
+        <p>We're sorry, you are not eligible for our program at the moment.</p>
     </div>
     <div class="buttons">
       <button (click)="goToPersonalInfo()">Edit Personal Info</button>
