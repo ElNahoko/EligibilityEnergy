@@ -1,9 +1,9 @@
 <div class="summary">
   <h2>Récapitulative</h2>
   <div *ngIf="personalInfo && projectInfo">
-    <p>Merci {{ personalInfo.civility }} {{ personalInfo.civility }} {{ personalInfo.lastName }} {{ personalInfo.firstName }} , for providing your information!</p>
+    <p>Merci {{ personalInfo.civility }} {{ personalInfo.civility }} {{ personalInfo.lastName }} {{ personalInfo.firstName }}</p>
     <div *ngIf="isEligible">
-        <p>Congratulations! You are eligible for our program.</p>
+        <p>Félécitation! Vous etes éligible</p>
         <p>You qualify for an Effy amount of {{ effyAidAmount }} euros.</p>
     </div>
     <div *ngIf="!isEligible">
