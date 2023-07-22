@@ -1,0 +1,54 @@
+<div class="project-info">
+  <h2>Project Information</h2>
+  <form (ngSubmit)="next()" [formGroup]="form">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="ownership">Ownership:</label>
+        <select formControlName="ownership" id="ownership" required>
+          <option *ngFor="let ownershipChoice of ownershipChoices" [value]="ownershipChoice">{{ ownershipChoice }}</option>
+        </select>
+        <div *ngIf="submitted && form.get('ownership')?.invalid" class="text-danger">
+          Ownership is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label>
+          Number of People in the Household:
+          <input type="number" formControlName="numberOfPeople" required
+            [ngClass]="{ 'is-invalid': submitted && form.get('numberOfPeople')?.invalid, 'is-valid': submitted && form.get('numberOfPeople')?.valid }">
+        </label>
+        <div *ngIf="submitted && form.get('numberOfPeople')?.invalid" class="text-danger">
+          Number of people is required.
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label>
+          Household Income:
+          <input type="number" formControlName="householdIncome" required
+            [ngClass]="{ 'is-invalid': submitted && form.get('householdIncome')?.invalid, 'is-valid': submitted && form.get('householdIncome')?.valid }">
+        </label>
+        <div *ngIf="submitted && form.get('householdIncome')?.invalid" class="text-danger">
+          Household income is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label>
+          Surface Area (m2):
+          <input type="number" formControlName="area" required
+            [ngClass]="{ 'is-invalid': submitted && form.get('area')?.invalid, 'is-valid': submitted && form.get('area')?.valid }">
+        </label>
+        <div *ngIf="submitted && form.get('area')?.invalid" class="text-danger">
+          Surface area is required.
+        </div>
+      </div>
+    </div>
+
+    <button type="submit">Next</button>
+  </form>
+</div>

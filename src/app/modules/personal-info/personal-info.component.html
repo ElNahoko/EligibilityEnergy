@@ -1,0 +1,64 @@
+<div class="personal-info">
+    <h2>Personal Information</h2>
+    <form (ngSubmit)="next()" [formGroup]="form">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="civility">Civility:</label>
+          <div *ngFor="let civilityChoice of civilityChoices" class="form-check form-check-inline">
+            <input type="radio" formControlName="civility" [value]="civilityChoice" required
+              class="form-check-input">
+            <label class="form-check-label">{{ civilityChoice }}</label>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6">
+          <label>
+            First Name:
+            <input type="text" formControlName="firstName" required
+              [ngClass]="{ 'is-invalid': submitted && form.get('firstName')?.invalid }">
+            <div *ngIf="submitted && form.get('firstName')?.invalid" class="text-danger">
+              First Name is required.
+            </div>
+          </label>
+        </div>
+        <div class="col-md-6">
+          <label>
+            Last Name:
+            <input type="text" formControlName="lastName" required
+              [ngClass]="{ 'is-invalid': submitted && form.get('lastName')?.invalid }">
+            <div *ngIf="submitted && form.get('lastName')?.invalid" class="text-danger">
+              Last Name is required.
+            </div>
+          </label>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6">
+          <label>
+            Email:
+            <input type="email" formControlName="email" required
+              [ngClass]="{ 'is-invalid': submitted && form.get('email')?.invalid }">
+            <div *ngIf="submitted && form.get('email')?.invalid" class="text-danger">
+              Please enter a valid email address.
+            </div>
+          </label>
+        </div>
+        <div class="col-md-6">
+          <label>
+            Phone:
+            <input type="tel" formControlName="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+              [ngClass]="{ 'is-invalid': submitted && form.get('phone')?.invalid }">
+            <div *ngIf="submitted && form.get('phone')?.invalid" class="text-danger">
+              Please enter a valid phone number (e.g., 123-456-7890).
+            </div>
+          </label>
+        </div>
+      </div>
+  
+      <button type="submit">Next</button>
+    </form>
+  </div>
+  

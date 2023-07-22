@@ -1,0 +1,14 @@
+/* Add this CSS in the personal-info.component.css or your global styles */
+.personal-info {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .row {
+    margin-bottom: 10px;
+  }
+  
+  .is-invalid {
+    border-color: red;
+  }
+  
